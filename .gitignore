@@ -38,3 +38,14 @@ yarn-error.log*
 # IDE
 .vscode
 .idea
+
+# lockfile
+pnpm-lock.yaml
+Cargo.lock
+
+# built files
+dist
+target
+
+# generated files
+generated
