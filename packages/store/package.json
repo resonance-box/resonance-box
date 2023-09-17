@@ -36,7 +36,9 @@
     "_clean": "rimraf dist",
     "_build:wasm": "wasm-pack build wasm-src --release --target web --out-dir ../src/generated/wasm --out-name store --no-pack",
     "_clean:wasm": "rimraf src/generated/wasm",
-    "build": "pnpm _clean:wasm && pnpm _clean && pnpm _build:wasm && pnpm _build"
+    "_test:wasm": "cd wasm-src && cargo test",
+    "build": "pnpm _clean:wasm && pnpm _clean && pnpm _build:wasm && pnpm _build",
+    "test": "pnpm _test:wasm"
   },
   "publishConfig": {
     "access": "public"
