@@ -15,6 +15,13 @@ module.exports = {
         sourceType: 'script',
       },
     },
+    {
+      files: ['packages/synthesizers/src/shared/text-encoder-decoder.js'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/strict-boolean-expressions': 'off',
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',

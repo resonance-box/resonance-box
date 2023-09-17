@@ -1,6 +1,6 @@
 {
-  "name": "@resonance-box/store",
-  "version": "0.0.11",
+  "name": "@resonance-box/synthesizers",
+  "version": "0.0.1",
   "keywords": [],
   "repository": {
     "type": "git",
@@ -34,7 +34,9 @@
     "_build:wasm": "wasm-pack build wasm-src --release --target web --out-dir ../src/generated/wasm --no-pack",
     "_clean:wasm": "rimraf src/generated/wasm",
     "_test:wasm": "cd wasm-src && cargo test",
-    "build": "pnpm _clean:wasm && pnpm _clean && pnpm _build:wasm && pnpm _build",
+    "_build:processor": "rollup -c rollup-processor.config.mjs",
+    "_clean:processor": "rimraf src/generated/processor.js src/generated/processor.js.map",
+    "build": "pnpm _clean:wasm && pnpm _clean:processor && pnpm _clean && pnpm _build:wasm && pnpm _build:processor && pnpm _build",
     "test": "pnpm _test:wasm"
   },
   "publishConfig": {
@@ -55,6 +57,7 @@
     "prettier-plugin-organize-imports": "^3.2.3",
     "rimraf": "^5.0.1",
     "rollup": "^3.28.1",
+    "tslib": "^2.6.2",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-dts": "^3.5.3",
