@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
+    "test": "turbo run test",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ignore-path .gitignore .",
     "format": "prettier --write --ignore-path .gitignore .",
