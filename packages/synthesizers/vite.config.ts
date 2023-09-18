@@ -16,7 +16,7 @@ const getFormattedPackageName = (): string => {
 }
 
 module.exports = defineConfig({
-  plugins: [dts()],
+  plugins: [dts({ entryRoot: resolve(__dirname, 'src') })],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),

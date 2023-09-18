@@ -1,0 +1,50 @@
+{
+  "name": "@resonance-box/engine",
+  "version": "0.0.0",
+  "keywords": [],
+  "homepage": "https://github.com/resonance-box/resonance-box#readme",
+  "bugs": {
+    "url": "https://github.com/resonance-box/resonance-box/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resonance-box/resonance-box.git"
+  },
+  "license": "MIT",
+  "author": "ot07",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "_build": "tsc && vite build",
+    "_clean": "rimraf dist",
+    "build": "pnpm _clean && pnpm _build"
+  },
+  "dependencies": {
+    "@resonance-box/store": "workspace:*",
+    "@resonance-box/synthesizers": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "rimraf": "^5.0.1",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.3"
+  },
+  "packageManager": "pnpm@8.7.0",
+  "engines": {
+    "node": "20.x",
+    "pnpm": ">=8.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
