@@ -1,12 +1,17 @@
 {
+  "name": "resonance-box",
   "private": true,
   "scripts": {
+    "_format": "prettier --write --ignore-path .gitignore .",
+    "_format:check": "prettier --check --ignore-path .gitignore .",
+    "_sort-package-json": "sort-package-json 'package.json' 'packages/*/package.json'",
+    "_sort-package-json:check": "sort-package-json --check 'package.json' 'packages/*/package.json'",
     "build": "turbo run build",
-    "test": "turbo run test",
+    "format": "pnpm _sort-package-json && pnpm _format",
+    "format:check": "pnpm _sort-package-json:check && pnpm _format:check",
     "lint": "eslint --ignore-path .gitignore .",
     "lint:fix": "eslint --fix --ignore-path .gitignore .",
-    "format": "prettier --write --ignore-path .gitignore .",
-    "format:check": "prettier --check --ignore-path .gitignore ."
+    "test": "turbo run test"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.7.0",
@@ -19,10 +24,10 @@
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.0.3",
     "prettier-plugin-organize-imports": "^3.2.3",
+    "sort-package-json": "^2.5.1",
     "tsconfig": "workspace:*",
     "turbo": "latest",
     "typescript": "^5.2.2"
   },
-  "packageManager": "pnpm@8.6.10",
-  "name": "resonance-box"
+  "packageManager": "pnpm@8.6.10"
 }

@@ -2,45 +2,37 @@
   "name": "@resonance-box/synthesizers",
   "version": "0.0.1",
   "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/resonance-box/resonance-box.git"
-  },
   "homepage": "https://github.com/resonance-box/resonance-box#readme",
   "bugs": {
     "url": "https://github.com/resonance-box/resonance-box/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resonance-box/resonance-box.git"
+  },
   "license": "MIT",
   "author": "ot07",
-  "engines": {
-    "node": "20.x",
-    "pnpm": ">=8.7.0"
-  },
-  "packageManager": "pnpm@8.7.0",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     }
   },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "_build": "tsc && vite build",
-    "_clean": "rimraf dist",
+    "_build:processor": "rollup -c rollup-processor.config.mjs",
     "_build:wasm": "wasm-pack build wasm-src --release --target web --out-dir ../src/generated/wasm --no-pack",
+    "_clean": "rimraf dist",
+    "_clean:processor": "rimraf src/generated/processor.js src/generated/processor.js.map",
     "_clean:wasm": "rimraf src/generated/wasm",
     "_test:wasm": "cd wasm-src && cargo test",
-    "_build:processor": "rollup -c rollup-processor.config.mjs",
-    "_clean:processor": "rimraf src/generated/processor.js src/generated/processor.js.map",
     "build": "pnpm _clean:wasm && pnpm _clean:processor && pnpm _clean && pnpm _build:wasm && pnpm _build:processor && pnpm _build",
     "test": "pnpm _test:wasm"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.3",
@@ -51,5 +43,13 @@
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-dts": "^3.5.3"
+  },
+  "packageManager": "pnpm@8.7.0",
+  "engines": {
+    "node": "20.x",
+    "pnpm": ">=8.7.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
